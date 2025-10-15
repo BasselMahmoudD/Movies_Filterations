@@ -4,7 +4,7 @@ import Search from "./Search";
 
 export default function Movies() {
   const [movies, setMovies] = useState([]);
-  const [searchedMOvies, setSearchedMovies] = useState([]);
+  const [searchedMovies, setSearchedMovies] = useState([]);
   const searchRef = useRef(null);
   const fetchMovies = async () => {
     const res = await fetch(
@@ -21,7 +21,6 @@ export default function Movies() {
 
   useEffect(() => {
     searchRef.current.focus();
-
     fetchMovies();
   }, []);
 
@@ -37,7 +36,7 @@ export default function Movies() {
         movieObj={movies}
         fetchSearchedMovies={fetchSearchedMovies}
       />
-      <Movie movieObj={searchedMOvies} />
+      <Movie movieObj={searchedMovies} />
     </div>
   );
 }
