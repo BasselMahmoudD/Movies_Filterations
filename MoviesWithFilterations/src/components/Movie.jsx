@@ -1,6 +1,23 @@
 import "../styles/style.css";
+import { useState } from "react";
 
 export default function Movie({ movieObj }) {
+  const [qtyMap, setQtyMap] = useState({});
+
+  const incrCardQty = (id) => {
+    setQtyMap((prev) => ({
+      ...prev,
+      [id]: (prev[id] || 1) + 1,
+    }));
+  };
+
+  const decrCardQty = (id) => {
+    setQtyMap((prev) => ({
+      ...prev,
+      [id]: prev[id] > 1 ? prev[id] - 1 : 1,
+    }));
+  };
+
   return (
     <div className="movie-container">
       {movieObj.map((movie) => (
@@ -13,6 +30,12 @@ export default function Movie({ movieObj }) {
           <h2 className="movie-title">{movie.title}</h2>
           <p className="movie-year">Year: {movie.release_date}</p>
           <p className="movie-rating">Rating: {movie.vote_average}</p>
+
+          <div className="qty-controls">
+            <span>QTY: {qtyMap[movie.id] || 1}</span>
+            <button onClick={() => incrCardQty(movie.id)}>+</button>
+            <button onClick={() => decrCardQty(movie.id)}>-</button>
+          </div>
         </div>
       ))}
     </div>
