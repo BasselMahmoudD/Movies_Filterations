@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import Movie from "./Movie";
 import Search from "./Search";
+import Filtration from "./Filtration";
 
 export default function Movies() {
   const [movies, setMovies] = useState([]);
@@ -36,6 +37,7 @@ export default function Movies() {
         movieObj={movies}
         fetchSearchedMovies={fetchSearchedMovies}
       />
+      <Filtration movieObj={movies} fetchSearchedMovies={fetchSearchedMovies}></Filtration>
       <Movie movieObj={searchedMovies} />
     </div>
   );
