@@ -1,132 +1,102 @@
-.movie-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  background-color: #adadad;
-  padding: 20px;
-  width: 80%;
-  margin: auto;
-  border-radius: 15px;
-  margin-bottom: 15px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-h1 {
-  text-align: center;
-  margin-bottom: 20px;
-  font-family: "Arial", sans-serif;
-}
-
-.movie-card {
-  background-color: #ffffff;
-  border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(189, 50, 50, 0.1);
-  overflow: hidden;
-  transition: box-shadow 0.3s ease, transform 0.6s ease, scale 1.5s ease;
-  text-align: center;
-  padding: 15px;
-  width: 200px;
-  margin: 15px;
-}
-
-.movie-card:hover {
-  transform: rotatey(360deg);
-  scale: 1.08;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-}
-
-.movie-poster {
-  width: 100%;
-  height: 350px;
-  object-fit: cover;
-  border-radius: 12px;
-}
-
-.movie-title {
-  font-size: 1.25rem;
-  font-weight: 700;
+/* === Global Styles === */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  background-color: #f5f6fa;
   color: #333;
-  margin-top: 0.75rem;
 }
 
-.movie-year,
-.movie-rating {
-  font-size: 0.95rem;
-  color: #666;
-  margin: 0.25rem 0;
-}
-
-.slider-container {
+/* === Layout === */
+.main-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  height: 100vh;
-  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-  color: white;
-  font-family: "Poppins", sans-serif;
+  padding: 30px;
 }
 
-.slider {
-  width: 600px;
-  height: 400px;
-  overflow: hidden;
-  border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-  background-color: #000;
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #222;
+  font-size: 2rem;
+  letter-spacing: 1px;
 }
 
-.slider-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: opacity 0.8s ease-in-out;
-}
-
-.controls {
-  margin-top: 20px;
+.content {
   display: flex;
-  gap: 15px;
+  justify-content: space-between;
+  width: 90%;
+  max-width: 1200px;
+  gap: 30px;
 }
 
-.controls button {
-  padding: 10px 20px;
-  background: #00bcd4;
-  color: white;
-  font-size: 16px;
-  border: none;
+/* === Sidebar (Filters) === */
+.sidebar {
+  width: 25%;
+  background-color: #ffffff;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  height: fit-content;
+}
+
+.filter-container h3 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #00bcd4;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.filter-group label {
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.filter-input {
+  padding: 10px 12px;
+  border: 2px solid #00bcd4;
   border-radius: 8px;
-  cursor: pointer;
-  transition: 0.3s;
+  font-size: 14px;
+  outline: none;
+  transition: all 0.3s ease;
 }
 
-.controls button:hover {
-  background: #0097a7;
-  transform: scale(1.05);
+.filter-input:focus {
+  border-color: #0097a7;
+  box-shadow: 0 4px 10px rgba(0, 188, 212, 0.2);
 }
 
-.controls button:active {
-  transform: scale(0.95);
+/* === Main Content (Search + Movies) === */
+.main-content {
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-/* === Search Component Styles === */
+
+/* === Search === */
 .search-container {
   display: flex;
   justify-content: center;
-  align-items: center;
-  margin: 30px auto;
-  width: 80%;
+  width: 100%;
+  margin-bottom: 25px;
 }
 
 .search-input {
-  width: 60%;
+  width: 70%;
   max-width: 500px;
   padding: 12px 20px;
   border: 2px solid #00bcd4;
   border-radius: 25px;
   font-size: 16px;
-  font-family: "Poppins", sans-serif;
   outline: none;
-  transition: all 0.3s ease;
+  transition: 0.3s;
   box-shadow: 0 4px 10px rgba(0, 188, 212, 0.1);
 }
 
@@ -136,17 +106,116 @@ h1 {
   background-color: #f8f9fa;
 }
 
-.search-input::placeholder {
-  color: #888;
-  font-style: italic;
+/* === Movie Cards === */
+.movie-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  background-color: #e9ecef;
+  padding: 20px;
+  border-radius: 15px;
+  width: 100%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
+
+.movie-card {
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  text-align: center;
+  padding: 15px;
+  width: 220px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.movie-card:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.movie-poster {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.movie-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #333;
+  margin-top: 0.75rem;
+}
+
+.movie-year,
+.movie-rating {
+  font-size: 0.95rem;
+  color: #555;
+  margin: 0.25rem 0;
+}
+
+/* === Timer (Optional) === */
 .timer {
-  transform: translateX(8%);
-  background-Color: "#000";
-  color: "#fff";
-  padding: 8px 16px;
-  border-Radius: 8px;
-  font-size: 20px;
-  font-Weight: bold;
-  z-Index: 9999;
+  position: fixed;
+  bottom: 15px;
+  right: 20px;
+  background-color: #00bcd4;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 25px;
+  font-size: 14px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* === Responsive Design === */
+@media (max-width: 900px) {
+  .content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .sidebar {
+    width: 90%;
+    margin-bottom: 20px;
+  }
+
+  .main-content {
+    width: 100%;
+  }
+
+  .search-input {
+    width: 85%;
+  }
+}
+.main-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.content {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 25px;
+  margin-top: 20px;
+}
+
+.sidebar {
+  width: 250px;
+  background: #fff;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  flex-shrink: 0;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

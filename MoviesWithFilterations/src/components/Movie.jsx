@@ -4,7 +4,7 @@ export default function Movie({ movieObj }) {
   return (
     <div className="movie-container">
       {movieObj.map((movie) => (
-        <div key={movie.title} className="movie-card">
+        <div key={movie.id} className="movie-card">
           <img
             src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
             alt={movie.title}

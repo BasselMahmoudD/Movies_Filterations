@@ -14,7 +14,7 @@ const Search = forwardRef(({ movieObj, fetchSearchedMovies }, ref) => {
       <input
         type="text"
         name="search"
-        ref={ref}  
+        ref={ref}
         className="search-input"
         placeholder="Search for a movie..."
         onChange={handleChange}
